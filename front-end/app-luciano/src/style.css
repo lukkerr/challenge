@@ -1,0 +1,88 @@
+body {
+  font-family: 'Quicksand', sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 190px;
+  border-bottom: solid 5px #B41C8B;
+}
+
+p {
+  margin: 0;
+}
+
+.empresa-data-box {
+  display: flex;
+  align-items: center;
+  margin-left: 58.96px;
+}
+
+.logo {
+  background-color: #FFF;
+  width: 142.08px;
+  height: 142.08px;
+  border-radius: 50%;
+  margin-right: 31px;
+  border: solid 2px #B41C8B;
+}
+
+.empresa-data {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.relative {
+  width: fit-content;
+  position: relative;
+}
+
+.empresa-header-row p:first-child {
+  font-size: 28px;
+  line-height: 35px;
+  font-weight: 700;
+}
+
+.empresa-header-row p:last-child {
+  position: absolute;
+  left: calc(100% + 20px);
+  inline-size: fit-content;
+  font-size: 12px;
+  font-weight: 700;
+  color: #1BBB16;
+}
+
+.empresa-endereco {
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 23.75px;
+  margin: 15px 0;
+}
+
+.empresa-delivery p:first-child {
+  margin-right: 42px;
+}
+
+.carrinho {
+  margin-right: 29px;
+}
+
+.carrinho-quantidade {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22.5px;
+}
+
+.carrinho-valor {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  color: #B41C8B;
+}
