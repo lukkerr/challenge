@@ -1,17 +1,5 @@
-body {
-  font-family: 'Quicksand', sans-serif;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 190px;
-  border-bottom: solid 5px #B41C8B;
-}
-
-p {
-  margin: 0;
+:root {
+  --default-color: #B41C8B;
 }
 
 .empresa-data-box {
@@ -26,7 +14,7 @@ p {
   height: 142.08px;
   border-radius: 50%;
   margin-right: 31px;
-  border: solid 2px #B41C8B;
+  border: solid 2px var(--default-color);
 }
 
 .empresa-data {
@@ -84,5 +72,66 @@ p {
   font-weight: 700;
   font-size: 20px;
   line-height: 25px;
-  color: #B41C8B;
+  color: var(--default-color);
+}
+
+.menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 70px;
+  background-color: #FFF;
+}
+
+.menu p {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22.5px;
+  transition: all .3s;
+  cursor: pointer;
+}
+
+.menu p.active {
+  color: var(--default-color);
+  font-weight: 700;
+  text-decoration-line: underline;
+  pointer-events: none;
+}
+
+.tab-tittle {
+  margin: 19px 0 19px 34px;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 27.5px;
+  color: #333333;
+}
+
+.produtos-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 0 42.5px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 254px;
+  height: 440px;
+  margin: auto;
+  background-color: #FFFFFF;
+}
+
+.card img {
+  margin: 5.910% 0;
+  width: 88.19%;
+}
+
+.card .produto-name {
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 23.75px;
+  padding: 0 5.910%;
+  margin-bottom: 20px;
+  color: #3F3F3F;
 }
