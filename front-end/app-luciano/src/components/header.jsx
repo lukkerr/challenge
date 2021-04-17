@@ -37,7 +37,11 @@ class Header extends React.Component {
                     <div className="empresa-data">
                         <div className="row relative empresa-header-row">
                             <p>{this.state.company.name}</p>
-                            <p>{this.state.company.status} AGORA</p>
+
+                            <div className="status-box">
+                                <img src={`${process.env.PUBLIC_URL}/icons/alert-status.svg`} alt="Status" />
+                                <p>{this.state.company.status} AGORA</p>
+                            </div>
                         </div>
 
                         <div className="row">
@@ -45,10 +49,15 @@ class Header extends React.Component {
                         </div>
                         
                         <div className="row empresa-delivery">
-                            <p>
-                                <span>Delivery: </span>
-                                {this.state.company.delivery_min} - {this.state.company.delivery_max}
-                            </p>
+                            
+                            <section className="row">
+                                <img src={`${process.env.PUBLIC_URL}/icons/motorcycle.svg`} alt="Motocicleta" />
+                                <p>
+                                    <span>Delivery: </span>
+                                    {this.state.company.delivery_min} - {this.state.company.delivery_max}
+                                </p>
+                            </section>
+
                             <p className="empresa-entrega">
                                 <span>Entrega:</span> À partir de R$ {this.state.company.price_delivery}
                             </p>
@@ -57,8 +66,8 @@ class Header extends React.Component {
                 </div>
 
                 <div className="carrinho">
-                    <div className="row">
-                        {/* <img src="car-icon"/> */}
+                    <div className="row relative">
+                        <img src={`${process.env.PUBLIC_URL}/icons/car.svg`} alt="Carrinho de compras"/>
                         <p className="carrinho-quantidade">
                             {this.state.car_items.length} Produtos no Carrinho
                         </p>

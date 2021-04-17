@@ -26,6 +26,11 @@ class ProdutosList extends React.Component {
 
         return (
             <>
+                <input className="search"  placeholder="O que você procura?" style={
+                    {
+                        backgroundImage: `url(${process.env.PUBLIC_URL}/icons/search.svg)`
+                    }
+                 } />
                 <h3 className="tab-tittle">{this.root.state.tab}</h3>
                 <div className="produtos-list">
                     { data.map((item,i) => <Card key={i} data={item}/>) }

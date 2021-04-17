@@ -12,6 +12,7 @@ body {
 
 header {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   min-height: 190px;
@@ -26,4 +27,10 @@ p {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@media (min-width: 1480px) {
+  header {
+    flex-direction: row;
+  }
 }

@@ -2,18 +2,24 @@
   --default-color: #B41C8B;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
 .empresa-data-box {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  margin-left: 58.96px;
+  margin: 15px;
 }
 
 .logo {
   background-color: #FFF;
-  width: 142.08px;
-  height: 142.08px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
-  margin-right: 31px;
+  margin: auto auto 10px auto;
   border: solid 2px var(--default-color);
 }
 
@@ -32,15 +38,28 @@
   position: relative;
 }
 
+.empresa-header-row {
+  flex-direction: column;
+  margin: auto;
+}
+
 .empresa-header-row p:first-child {
-  font-size: 28px;
+  font-size: 24px;
+  text-align: center;
   line-height: 35px;
   font-weight: 700;
 }
 
-.empresa-header-row p:last-child {
-  position: absolute;
-  left: calc(100% + 20px);
+.status-box {
+  display: flex;
+  height: 100%;
+}
+
+.status-box img {
+  margin-right: 2px;
+}
+
+.status-box p {
   inline-size: fit-content;
   font-size: 12px;
   font-weight: 700;
@@ -49,17 +68,35 @@
 
 .empresa-endereco {
   font-weight: 400;
-  font-size: 19px;
+  font-size: 12px;
+  text-align: center;
   line-height: 23.75px;
   margin: 15px 0;
 }
 
-.empresa-delivery p:first-child {
-  margin-right: 42px;
+.empresa-delivery {
+  flex-direction: column;
+}
+
+.empresa-delivery p {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  color: #3F3F3F;
+}
+
+.empresa-delivery img {
+  margin-right: 4px;
 }
 
 .carrinho {
   margin-right: 29px;
+}
+
+.carrinho img {
+  position: absolute;
+  top: 0;
+  left: -39px;
 }
 
 .carrinho-quantidade {
@@ -77,6 +114,7 @@
 
 .menu {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   min-height: 70px;
@@ -93,14 +131,32 @@
 
 .menu p.active {
   color: var(--default-color);
-  font-weight: 700;
+  font-weight: bold;
   text-decoration-line: underline;
   pointer-events: none;
 }
 
+.search {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  max-width: 660px;
+  width: 85%;
+  height: 54px;
+  background: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  border-radius: 3px;
+  padding: 0 16px;
+  margin: 50px auto 58px auto;
+  /* margin: 50px auto 58px 34px; */
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: calc(100% - 16px);
+}
+
 .tab-tittle {
-  margin: 19px 0 19px 34px;
-  font-weight: 700;
+  margin: 0 0 19px 34px;
+  font-weight: bold;
   font-size: 22px;
   line-height: 27.5px;
   color: #333333;
@@ -108,7 +164,7 @@
 
 .produtos-list {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: 1fr;
   padding: 0 42.5px;
 }
 
@@ -117,9 +173,11 @@
   flex-direction: column;
   align-items: center;
   width: 254px;
-  height: 440px;
+  height: 400px;
   margin: auto;
   background-color: #FFFFFF;
+  border: 1px solid #D9D9D9;
+  border-radius: 5px;
 }
 
 .card img {
@@ -132,6 +190,70 @@
   font-size: 19px;
   line-height: 23.75px;
   padding: 0 5.910%;
-  margin-bottom: 20px;
   color: #3F3F3F;
+}
+
+.card p:last-child {
+  color: var(--default-color);
+  font-weight: 700;
+  font-size: 21px;
+  margin: auto;
+}
+
+@media (min-width: 1480px) {
+
+  .empresa-header-row {
+    flex-direction: row;
+    margin: unset;
+  }
+
+  .empresa-header-row p:first-child {
+    font-size: 28px;
+  }
+
+  .status-box {
+    margin-left: 20px;
+  }
+
+  .empresa-endereco {
+    font-size: 19px;
+    text-align: unset;
+  }
+
+  .empresa-delivery {
+    flex-direction: row;
+  }
+
+  .empresa-delivery p {
+    font-size: 18px;
+  }
+
+  .empresa-delivery section p {
+    margin-right: 42px;
+  }  
+
+  .logo {
+    width: 142.08px;
+    height: 142.08px;  
+    margin-right: 31px;
+    margin-bottom: auto;
+  }
+
+  .menu {
+    flex-direction: row;
+  }
+
+  .search {
+    margin: 50px auto 58px 34px;
+  }
+
+  .empresa-data-box {
+    margin: unset;
+    margin-left: 58.96px;
+    flex-direction: row;
+  }
+
+  .produtos-list {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
