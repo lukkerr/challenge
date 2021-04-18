@@ -1,7 +1,3 @@
-:root {
-  --default-color: #B41C8B;
-}
-
 #root {
   display: flex;
   flex-direction: column;
@@ -51,12 +47,13 @@
 }
 
 .status-box {
-  display: flex;
   height: 100%;
 }
 
 .status-box img {
   margin-right: 2px;
+  width: 10px;
+  height: 10px;
 }
 
 .status-box p {
@@ -68,21 +65,32 @@
 
 .empresa-endereco {
   font-weight: 400;
-  font-size: 12px;
+  font-size: 15px;
   text-align: center;
   line-height: 23.75px;
+  color: #333333;
   margin: 15px 0;
 }
 
 .empresa-delivery {
-  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  color: #333333;
 }
 
 .empresa-delivery p {
   font-weight: 500;
   font-size: 14px;
   line-height: 22px;
+  color: #818181;
+}
+
+.empresa-delivery p span {
   color: #3F3F3F;
+}
+
+.empresa-delivery section p {
+  margin-right: 15px;
 }
 
 .empresa-delivery img {
@@ -90,13 +98,8 @@
 }
 
 .carrinho {
-  margin-right: 29px;
-}
-
-.carrinho img {
-  position: absolute;
-  top: 0;
-  left: -39px;
+  display: flex;
+  margin-bottom: 10px;
 }
 
 .carrinho-quantidade {
@@ -105,7 +108,28 @@
   line-height: 22.5px;
 }
 
+.carrinho-quantidade span:first-child {
+  position: absolute;
+  top: -11px;
+  right: -11px;
+  font-size: 11px;
+  background-color: var(--default-color);
+  color: #FFF;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: solid #FFF 1.5px;
+}
+
+.carrinho-quantidade span:last-child {
+  display: none;
+}
+
 .carrinho-valor {
+  margin-left: 20px;
   font-weight: 700;
   font-size: 20px;
   line-height: 25px;
@@ -114,7 +138,7 @@
 
 .menu {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   min-height: 70px;
@@ -123,10 +147,15 @@
 
 .menu p {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 22.5px;
-  transition: all .3s;
+  transition: color .3s, font-weight .3s;
   cursor: pointer;
+  height: 35px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .menu p.active {
@@ -138,46 +167,50 @@
 
 .search {
   font-weight: 400;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 25px;
   max-width: 660px;
   width: 85%;
-  height: 54px;
+  height: 35px;
   background: #FFFFFF;
   border: 1px solid #DDDDDD;
   border-radius: 3px;
   padding: 0 16px;
   margin: 50px auto 58px auto;
-  /* margin: 50px auto 58px 34px; */
   background-repeat: no-repeat;
   background-position-y: center;
   background-position-x: calc(100% - 16px);
 }
 
 .tab-tittle {
-  margin: 0 0 19px 34px;
+  margin: 0 auto 19px auto;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 18px;
   line-height: 27.5px;
   color: #333333;
 }
 
 .produtos-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  padding: 0 42.5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 10px;
 }
 
 .card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 254px;
-  height: 400px;
-  margin: auto;
+  width: 240px;
+  height: 370px;
   background-color: #FFFFFF;
   border: 1px solid #D9D9D9;
   border-radius: 5px;
+  margin: auto 10px 10px 10px;
+}
+
+.card:hover {
+  cursor: pointer;
 }
 
 .card img {
@@ -185,22 +218,136 @@
   width: 88.19%;
 }
 
-.card .produto-name {
+.card .product-name {
   font-weight: 500;
-  font-size: 19px;
+  font-size: 15px;
   line-height: 23.75px;
   padding: 0 5.910%;
   color: #3F3F3F;
 }
 
+.product-promotion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 15px;
+  top: 15px;
+  position: absolute;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #FFF;
+  width: 75px;
+  height: 25px;
+  border-radius: 2px;
+  background-color: #77D400;
+}
+
 .card p:last-child {
   color: var(--default-color);
-  font-weight: 700;
+  font-weight: bold;
   font-size: 21px;
   margin: auto;
 }
 
-@media (min-width: 1480px) {
+.card p:last-child span:nth-child(2) {
+  font-size: 14px;
+  text-decoration: line-through;
+  white-space: nowrap;
+  color: #CECECE;
+  position: absolute;
+  top: -25%;
+  right: -50%;
+  transform: rotate(25deg);
+}
+
+
+.empty-list {
+  font-size: 18px;
+  text-align: center; 
+  line-height: 24px;
+  margin: 0 15px 20px 15px;
+}
+
+.popup-box {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0 0 0 / .5);
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: fit-content;
+  width: 30%;
+  padding: 20px;
+  background-color: #FFF;
+  border-radius: 5px;
+}
+
+.popup .card {
+  border: none;
+  pointer-events: none;
+}
+
+.popup .count-product-box {
+  display: flex;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.popup .count-product-box span {
+  color: #FFF;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: var(--default-color);
+  width: 25px;
+}
+
+.popup .count-product-box .count-product {
+  width: 60px;
+  border: none;
+  text-align: center;
+  background-color: #D9D9D9;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 2px;
+}
+
+@media (min-width: 440px) {
+  .carrinho {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  header {
+    flex-direction: row;
+  }
+
+  .empresa-data-box {
+    margin: unset;
+    margin-left: 58.96px;
+    flex-direction: row;
+  }
+
+  .logo {
+    width: 142.08px;
+    height: 142.08px;  
+    margin: auto 31px auto auto
+  }
 
   .empresa-header-row {
     flex-direction: row;
@@ -222,6 +369,7 @@
 
   .empresa-delivery {
     flex-direction: row;
+    justify-content: unset;
   }
 
   .empresa-delivery p {
@@ -230,30 +378,222 @@
 
   .empresa-delivery section p {
     margin-right: 42px;
-  }  
-
-  .logo {
-    width: 142.08px;
-    height: 142.08px;  
-    margin-right: 31px;
-    margin-bottom: auto;
   }
 
-  .menu {
-    flex-direction: row;
+  .carrinho {
+    position: unset;
+    margin-right: 29px;
+    margin-bottom: unset;
+    top: unset;
+    right: unset;
   }
 
   .search {
+    font-size: 20px;
     margin: 50px auto 58px 34px;
+    height: 54px;
+  }
+
+  .tab-tittle {
+    margin: 0 0 19px 34px;
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 1280px) {
+  
+  .carrinho {
+    display: block;
+  }
+
+  .carrinho img {
+    position: absolute;
+    top: 0;
+    left: -39px;
+  }
+
+  .carrinho-quantidade span:first-child {
+    position: unset;
+    font-size: 18px;
+    background-color: transparent;
+    color: unset;
+    width: unset;
+    height: unset;
+    display: inline;
+    border-radius: unset;
+    border: none;
+    top: unset;
+    right: unset;
+  }
+  
+  .carrinho-quantidade span:last-child {
+    display: inline;
+  }
+
+  .carrinho-valor {
+    margin-left: unset;
+  }
+
+  .menu p {
+    font-size: 18px;
+    height: unset;
+    width: unset;
+    flex: 1;
+  }
+
+  .card .product-name {
+    font-size: 19px;
+  }
+}
+
+@media (min-width: 1480px) {
+  header {
+    min-height: 12.8379vw; /* 190px */
+    border-bottom-width: 0.338vw; /* 5px */
   }
 
   .empresa-data-box {
-    margin: unset;
-    margin-left: 58.96px;
-    flex-direction: row;
+    margin-left: 3.9838vw; /* 58.96px */
+  }
+
+  .logo {
+    width: 9.6vw; /* 142.078px */
+    height: 9.6vw; /* 142.078px */
+    margin-right: 2.0946vw; /* 31px */
+    border-width: 0.1352vw; /* 2px */
+  }
+
+  .empresa-header-row p:first-child {
+    font-size: 1.89189vw; /* 28px */
+    line-height: 2.36487vw; /* 35px */
+  }
+
+  .status-box {
+    margin-left: 1.35135vw; /* 20px */
+  }
+
+  .status-box img {
+    width: 0.6757vw; /* 10px */
+    height: 0.6757vw; /* 10px */
+    margin-right: 0.1352vw; /* 2px */
+  }
+
+  .status-box p {
+    font-size: 0.81081vw; /* 12px */
+  }
+
+  .empresa-endereco {
+    font-size: 1.283785vw; /* 19px */
+    line-height: 1.604vw;
+    margin: 1.013511vw 0; /* 15px 0 15px 0 */
+  }
+
+  .empresa-delivery img {
+    width: 1.081082vw; /* 16px */
+    height: 0.6082vw; /* 9px */
+    margin-right: 0.2703vw; /* 4px */
+  }
+
+  .empresa-delivery p {
+    font-size: 1.216219vw; /* 18px */
+    line-height: 1.48649vw; /* 22px */
+  }
+
+  .empresa-delivery section p {
+    margin-right: 2.83782vw; /* 42px */
+  }
+
+  .carrinho {
+    margin-right: 1.95949vw; /* 29px */
+  }
+
+  .carrinho img {
+    left: -2.63513vw; /* 39px */
+  }
+
+  .carrinho-quantidade {
+    font-size: 1.216219vw; /* 18px */
+    line-height: 1.48649vw; /* 22px */
+  }
+
+  .carrinho-quantidade span:first-child {
+    font-size: 1.216219vw; /* 18px */
+  }
+
+  .carrinho-valor {
+    font-size: 1.35135vw; /* 20px */
+    line-height: 1.6892vw; /* 25px */
+  }
+
+  .menu {
+    min-height: 4.73vw;
+    line-height: 1.48649vw; /* 22px */
+  }
+
+  .menu p {
+    font-size: 1.216219vw; /* 18px */
+  }
+
+  .search {
+    font-size: 1.35135vw; /* 20px */
+    padding: 0 1.081082vw; /* 0 16px */
+    height: 3.6487vw; /* 54px */
+    max-width: 44.5946vw; /* 660px */
+    border-width: 0.06756vw; /* 1px */
+    line-height: 1.6892vw; /* 25px */
+    border-radius: 0.202703vw; /* 3px */
+    margin: 3.37838vw auto 3.91892vw 2.2973vw; /* 50px auto 58px 34px*/
+    background-position-x: calc(100% - 1.081082vw); /* 100% - 16px */
+  }
+
+  .tab-tittle {
+    margin: 0 0 1.283785vw 2.2973vw; /* 0 0 19px 34px */
+    font-size: 1.48649vw; /* 22px */
+    line-height: 1.858vw; /* 27px */
   }
 
   .produtos-list {
+    display: grid;
     grid-template-columns: repeat(5, 1fr);
+    padding: 0 2.8716vw; /* 42.5px */
+    margin-bottom: 0.6757vw; /* 10px */
+  }
+
+  .card {
+    width: 17.16217vw; /* 254px */
+    height: 25vw; /* 370px */
+    border-width: 0.06756vw; /* 1px */
+    margin: auto 0.6757vw 0.6757vw 0.6757vw; /* auto 10px 10px 10px */;
+    border-radius: 0.338vw; /* 5px */
+  }
+
+  .card .product-name {
+    font-size: 1.283785vw; /* 19px */
+    line-height: 1.5878vw; /* 23px */
+  }
+
+  .product-promotion {
+    left: 1.013511vw; /* 15px */
+    top: 1.013511vw; /* 15px */
+    font-size: 1.081082vw; /* 16px */
+    line-height: 1.35135vw; /* 20px */
+    width: 5.0676vw; /* 75px */
+    height: 1.6892vw; /* 25px */
+    border-radius: 0.1352vw; /* 2px */
+  }
+
+  .card p:last-child {
+    font-size: 1.41892vw; /* 21px */
+  }
+
+  .card p:last-child span:nth-child(2) {
+    font-size: 0.945945vw; /* 14px */
+  }
+
+  .empty-list {
+    margin: unset;
+    font-size: 1.216219vw; /* 18px */
+    line-height: 1.5878vw; /* 23px */
+    margin-bottom: 1.35135vw; /* 20px */
   }
 }

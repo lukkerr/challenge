@@ -1,0 +1,13 @@
+.erase-popup {
+    animation: erase-popup .3s
+}  
+
+@keyframes erase-popup {
+    0%{
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

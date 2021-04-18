@@ -1,41 +1,46 @@
 import React from 'react'
 import Card from './card'
+import Try from './try'
+import { getProducts, formatBackGround } from '../functions'
 
 class ProdutosList extends React.Component {
     constructor (props) {
         super(props)
         this.root = props.root;
-        this.state = { data: [] };
+        this.state = { data: [], filter: "" };
     }
     
     async componentDidMount () {
-        const data = await this.getData();
+        const data = await getProducts();
         this.setState({ data });
     }
 
-    async getData() {
-        const res = await fetch(`http://${window.location.hostname}:5000/products`);
-        const data = await res.json();
-        return data
-    }
+    filterCard = async e => this.setState({ filter: e.target.value.toLowerCase() });
 
     render () {
         const data = this.state.data.filter(item => {
-            return item.categories.includes(this.root.state.tab)
+            const filterText = item.name.toLowerCase().includes(this.state.filter);
+            const filterCateg = item.categories.includes(this.root.state.tab);
+            let promotionItem = false;
+
+            if(this.root.state.tab === 'Sugestão do Vendedor')
+                promotionItem = item.promotion > 0;
+
+            return ( filterText && filterCateg ) || promotionItem;
         });
 
         return (
             <>
-                <input className="search"  placeholder="O que você procura?" style={
-                    {
-                        backgroundImage: `url(${process.env.PUBLIC_URL}/icons/search.svg)`
-                    }
-                 } />
+                <input onChange={(e) => this.filterCard(e)} placeholder="O que você procura?"
+                    className="search"  style={{ backgroundImage: formatBackGround("/icons/search.svg") }} />
                 <h3 className="tab-tittle">{this.root.state.tab}</h3>
                 <div className="produtos-list">
-                    { data.map((item,i) => <Card key={i} data={item}/>) }
+                    { data.map((item,i) => <Card root={this} key={i} data={item}/>) }
                 </div>
-            </>    
+                <Try if={data.length === 0}>
+                    <p className="empty-list">Sentimos muito, mas nenhum produto foi encontrado.</p>
+                </Try>
+            </>
         )
     }
 }

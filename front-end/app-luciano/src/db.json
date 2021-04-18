@@ -5,6 +5,7 @@
       "name": "Shampoo Tradicional I Love Pet 5 Litros",
       "price": 50.60,
       "image": "/products/image 10.png",
+      "promotion": 0,
       "categories": ["Sugestão do Vendedor", "Camas e Casinhas"]
     },
     {
@@ -12,6 +13,7 @@
       "name": "Shampoo Tradicional I Love Pet 5 Litros",
       "price": 50.60,
       "image": "/products/image 10.png",
+      "promotion": 10,
       "categories": ["Sugestão do Vendedor", "Camas e Casinhas"]
     },
     {
@@ -19,6 +21,7 @@
       "name": "Shampoo Tradicional I Love Pet 5 Litros",
       "price": 50.60,
       "image": "/products/image 10.png",
+      "promotion": 0,
       "categories": ["Sugestão do Vendedor", "Camas e Casinhas"]
     },
     {
@@ -33,6 +36,7 @@
       "name": "Shampoo Tradicional I Love Pet 5 Litros",
       "price": 50.60,
       "image": "/products/image 10.png",
+      "promotion": 0,
       "categories": ["Sugestão do Vendedor", "Camas e Casinhas"]
     }
   ],
