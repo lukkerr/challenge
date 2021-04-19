@@ -1,19 +1,50 @@
 import React from 'react'
-import { getCompany, getProfile, formatUrl } from '../functions'
+import { getCompany, getProfile, getProducts, calcPromotion, formatUrl } from '../../functions'
 class Header extends React.Component {
 
     constructor () {
         super()
-        this.state = { company: {}, profile: {}, car_items: [] }
+        this.state = {
+            company: {},
+            profile: {},
+            products: {},
+            car_items: [],
+            car_counts: []
+        }
     }
 
     async componentDidMount () {
         const company = await getCompany();
-        const profile = await getProfile();
+        const products = await getProducts();
+        let profile = await getProfile();
         
         this.setState({ company });
+        this.setState({ products });
         this.setState({ profile });
+
         this.setState({ car_items: profile.car_items });
+        this.setState({ car_counts: profile.car_counts });
+
+        setInterval(async () => {
+
+            profile = await getProfile();
+        
+            this.setState({ profile });
+            this.setState({ car_items: profile.car_items });
+            this.setState({ car_counts: profile.car_counts });
+        
+        }, 1500);
+    }
+
+    getPrice = array => {
+        if(array.length === 0)
+            return "0.00"
+        else
+            return array.map((id,i) => {
+                const item = this.state.products.filter(product => product.id === id)[0];
+                return calcPromotion(item) * this.state.car_counts[i];
+            })
+            .reduce((a,b) => a + b).toFixed(2);
     }
 
     render() {
@@ -60,7 +91,7 @@ class Header extends React.Component {
                             <span> Produtos no Carrinho</span>
                         </p>
                     </div>
-                    <p className="carrinho-valor">R$ {this.state.profile.car_price}</p>
+                    <p className="carrinho-valor">R$ {this.getPrice(this.state.car_items)}</p>
                 </div>
             </header>
         )

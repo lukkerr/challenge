@@ -3,53 +3,69 @@
     {
       "id": "1",
       "name": "Shampoo Tradicional I Love Pet 5 Litros",
-      "price": 50.60,
+      "price": 50.6,
       "image": "/products/image 10.png",
       "promotion": 0,
-      "categories": ["Sugestão do Vendedor", "Camas e Casinhas"]
+      "categories": [
+        "Sugestão do Vendedor",
+        "Ossos e Petiscos"
+      ]
     },
     {
       "id": "2",
-      "name": "Shampoo Tradicional I Love Pet 5 Litros",
-      "price": 50.60,
-      "image": "/products/image 10.png",
+      "name": "Cama Londres Azul - Chicxs",
+      "price": 70.5,
+      "image": "/products/image 207.png",
       "promotion": 10,
-      "categories": ["Sugestão do Vendedor", "Camas e Casinhas"]
+      "categories": [
+        "Sugestão do Vendedor",
+        "Camas e Casinhas"
+      ]
     },
     {
       "id": "3",
-      "name": "Shampoo Tradicional I Love Pet 5 Litros",
-      "price": 50.60,
-      "image": "/products/image 10.png",
+      "name": "Comedouro Pesado Lilás NF Pet",
+      "price": 35.2,
+      "image": "/products/image 206.png",
       "promotion": 0,
-      "categories": ["Sugestão do Vendedor", "Camas e Casinhas"]
+      "categories": [
+        "Sugestão do Vendedor",
+        "Brinquedos"
+      ]
     },
     {
       "id": "4",
       "name": "Shampoo Tradicional I Love Pet 5 Litros",
-      "price": 50.60,
+      "price": 50.6,
       "image": "/products/image 10.png",
-      "categories": ["Sugestão do Vendedor", "Camas e Casinhas"]
+      "promotion": 0,
+      "categories": [
+        "Sugestão do Vendedor",
+        "Camas e Casinhas"
+      ]
     },
     {
       "id": "5",
       "name": "Shampoo Tradicional I Love Pet 5 Litros",
-      "price": 50.60,
+      "price": 50.6,
       "image": "/products/image 10.png",
       "promotion": 0,
-      "categories": ["Sugestão do Vendedor", "Camas e Casinhas"]
+      "categories": [
+        "Sugestão do Vendedor",
+        "Camas e Casinhas"
+      ]
     }
   ],
   "company": {
-      "name": "Pet Friends Acessories",
-      "status": "ABERTO",
-      "address": "Avenida Rio Grande do Sul, 1520, Estados | 58030-021 | João Pessoa - PB",
-      "delivery_min": "35m",
-      "delivery_max": "1h:40m",
-      "price_delivery": 3.00
+    "name": "Pet Friends Acessories",
+    "status": "ABERTO",
+    "address": "Avenida Rio Grande do Sul, 1520, Estados | 58030-021 | João Pessoa - PB",
+    "delivery_min": "35m",
+    "delivery_max": "1h:40m",
+    "price_delivery": 3
   },
   "profile": {
     "car_items": [],
-    "car_price": 0.00
+    "car_counts": []
   }
 }

@@ -1,13 +1,27 @@
 import React from 'react'
-import Try from './try'
-import { formatUrl, calcPromotion } from '../functions'
+import Try from '../try/'
+import { formatUrl, calcPromotion } from '../../functions'
 
 // props.root.root = App Component
 
 class Card extends React.Component {
 
-    setData = async () =>
-        this.props.root.root.setState({ data: this.props.data })
+    setData = async () => {
+
+        const profile = this.props.root.state.profile;
+        const data =  JSON.parse( JSON.stringify(this.props.data) );
+        const index = profile.car_items.indexOf(data.id);
+
+        // Adicionando atributos que seram usados em popUp
+        if( index !== -1 ) {
+            data.count = profile.car_counts[index];
+            data.priceDefault = data.price;
+            data.price = data.price * data.count;
+        }
+
+        // Setando atributos em data de App, automaticamente abrindo popUp
+        this.props.root.root.setState({ data })
+    }
 
     render () {
         return (

@@ -1,10 +1,10 @@
 import React from 'react';
-import './style.css';
-import './animation.css'
-import Header from './components/header'
-import Menu from './components/menu'
-import ProdutosList from './components/produtoslist'
-import PopUp from './components/popup'
+import './style/style.css';
+import './style/animation.css'
+import Header from './components/header/'
+import Menu from './components/menu/'
+import ProdutosList from './components/produtolist/'
+import PopUp from './components/popup/'
 class App extends React.Component {
   
   constructor(props) {

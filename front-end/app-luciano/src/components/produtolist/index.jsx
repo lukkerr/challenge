@@ -1,18 +1,25 @@
 import React from 'react'
-import Card from './card'
-import Try from './try'
-import { getProducts, formatBackGround } from '../functions'
+import Card from '../card/'
+import Try from '../try/'
+import { getProducts, getProfile, formatBackGround } from '../../functions'
 
 class ProdutosList extends React.Component {
     constructor (props) {
         super(props)
         this.root = props.root;
-        this.state = { data: [], filter: "" };
+        this.state = { data: [], profile: {}, filter: "" };
     }
     
     async componentDidMount () {
         const data = await getProducts();
+        let profile = await getProfile();
         this.setState({ data });
+        this.setState({ profile });
+
+        setInterval(async () => {
+            profile = await getProfile();
+            this.setState({ profile });
+        }, 1500);
     }
 
     filterCard = async e => this.setState({ filter: e.target.value.toLowerCase() });
@@ -23,7 +30,7 @@ class ProdutosList extends React.Component {
             const filterCateg = item.categories.includes(this.root.state.tab);
             let promotionItem = false;
 
-            if(this.root.state.tab === 'Sugestão do Vendedor')
+            if(this.root.state.tab === 'Sugestão do Vendedor' && filterText)
                 promotionItem = item.promotion > 0;
 
             return ( filterText && filterCateg ) || promotionItem;
